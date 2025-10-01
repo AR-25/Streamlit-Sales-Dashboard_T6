@@ -31,9 +31,11 @@ This project is an interactive web dashboard built with **Streamlit** to analyze
 
 ---
 
-## 🚀 How to Run This Project Locally
+## 🚀 How to Run This Project
 
-To run this dashboard on your own machine, please follow these steps:
+You can run this dashboard in two ways: on your local machine or directly in Google Colab.
+
+### ### Method 1: Running on Your Local Machine (Recommended)
 
 1.  **Clone the repository:**
     ```bash
@@ -50,3 +52,38 @@ To run this dashboard on your own machine, please follow these steps:
     ```bash
     streamlit run app.py
     ```
+    Your browser should automatically open a new tab with the running dashboard.
+
+### ### Method 2: Running in Google Colab
+
+This method requires a free `ngrok` account to create a public URL for your dashboard.
+
+1.  **Upload Files:** Open a new Google Colab notebook and upload the `app.py` script and the `supermarket_sales.csv` dataset to the file browser.
+
+2.  **Install Libraries:** In a code cell, install the necessary libraries.
+    ```python
+    !pip install streamlit pandas plotly-express pyngrok
+    ```
+
+3.  **Get Your ngrok Authtoken:**
+    * Go to the [ngrok Dashboard](https://dashboard.ngrok.com/get-started/your-authtoken) and sign up for a free account.
+    * Copy your unique authtoken from the dashboard.
+
+4.  **Run the App:** In a new code cell, paste the following code. Replace the placeholder with your actual `ngrok` authtoken, then run the cell.
+
+    ```python
+    from pyngrok import ngrok
+
+    # Paste your ngrok authtoken here
+    NGROK_AUTH_TOKEN = "YOUR_NGROK_AUTH_TOKEN_GOES_HERE"
+    ngrok.set_auth_token(NGROK_AUTH_TOKEN)
+
+    # Run the streamlit app in the background
+    !streamlit run app.py &>/dev/null &
+
+    # Open a tunnel to the streamlit port and get the public URL
+    public_url = ngrok.connect(8501)
+    print("Click the link to view your dashboard:")
+    print(public_url)
+    ```
+
