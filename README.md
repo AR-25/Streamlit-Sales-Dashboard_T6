@@ -1,4 +1,4 @@
-# Streamlit-Sales-Dashboard_T6
+# Streamlit-Sales-Dashboard
 
 # Interactive Supermarket Sales Dashboard
 
