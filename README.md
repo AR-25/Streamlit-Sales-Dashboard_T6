@@ -35,7 +35,7 @@ This project is an interactive web dashboard built with **Streamlit** to analyze
 
 You can run this dashboard in two ways: on your local machine or directly in Google Colab.
 
-### ### Method 1: Running on Your Local Machine (Recommended)
+###  Method 1: Running on Your Local Machine (Recommended)
 
 1.  **Clone the repository:**
     ```bash
